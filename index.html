@@ -2,18 +2,60 @@
 
   <head>
     <link href='css/bootstrap.css' rel='stylesheet'>
+    <link href='css/style.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </head>
 
  <body>
     <div class ='container'>
       <div class='jumbotron'>
+        <div class="row">
+          <div class="text-center">
+            <h2>Rock, Paper, Scissors, Lizard, Spock</h2>
+             <button class="btn btn-success" id="start-random-cpu">Play Random CPU Player</button>
+             <button class="btn btn-success" id="start-tactical-cpu">Play Tactical CPU Player</button>
+            <div class="col-md-5">
+              <h3> Player 1: <span id="p1-turn"></span></h3>
+            </div>
+
+            <div class="col-md-2">
+              <br>
+              <p> plays </p>
+              <br>
+            </div>
+
+            <div class="col-md-5">
+              <h3> CPU: <span id="cpu-turn"></span></h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-mid-5">
+            <form class="form-inline pull-left" id="turn-form">
+              <div class="form-group">
+                <label for="exampleInputName2">Turn</label>
+                <input type="text" name='turn' class="form-control" id="turn" placeholder="Enter Your Go">
+              </div>
+              <button type="submit" class="btn btn-success" id="p1">Take Turn</button>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div id="roundresult">
+          </div>
+        </div>
+        <div class="row">
+          <div id="overallresult">
+          </div>
+        </div>
+        <button class="btn btn-success" id="newgame">Play Again?</button>
       </div>
     </div>
     <script src="src/Game.js"></script>
     <script src="src/HumanPlayer.js"></script>
     <script src="src/RandomCPUPlayer.js"></script>
     <script src="src/TacticalCPUPlayer.js"></script>
+    <script src="src/GameUI.js"></script>
  </body>
 
 
