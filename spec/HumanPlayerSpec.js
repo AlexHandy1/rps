@@ -14,4 +14,8 @@ describe("HumanPlayer", function(){
     expect(humanplayer.turn).toEqual("Rock")
   })
 
+  it("has zero round wins when initialized", function() {
+    expect(humanplayer.roundWins).toEqual(0)
+  })
+
 })

@@ -23,11 +23,11 @@ Use Cases:
 -------
 
 ```
-- [ ] As a User,
+- [x] As a User,
       So that I can play a basic game of Rock Paper Scissors,
       I want to play one round against a computer player with randomised choices
 
-- [ ] As a User,
+- [x] As a User,
       So that I can play a longer game of Rock Paper Scissors,
       I want to play a best of three rounds match against a computer with randomised choices
 

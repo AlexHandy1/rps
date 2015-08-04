@@ -1,5 +1,6 @@
 function RandomCPUPlayer(){
   this.turn = null
+  this.roundWins = 0
 }
 
 RandomCPUPlayer.prototype.takeTurn = function() {

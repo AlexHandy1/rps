@@ -9,11 +9,14 @@ describe("RandomCPUPlayer", function(){
     expect(randomcpuplayer.turn).toEqual(null);
   });
 
-  xit("stores a selected turn when passed a valid string", function() {
+  xit("generates a random turn for the CPU player", function() {
     //refactor to stub out
     spyOn(randomcpuplayer, "takeTurn").and.returnValue("Rock");
     randomcpuplayer.takeTurn()
     expect(randomcpuplayer.turn).toEqual("Rock")
   })
 
+  it("has zero round wins when initialized", function() {
+    expect(randomcpuplayer.roundWins).toEqual(0)
+  })
 })
