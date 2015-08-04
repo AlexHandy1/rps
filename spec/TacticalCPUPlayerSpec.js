@@ -2,7 +2,7 @@ describe("TacticalCPUPlayer", function(){
   var tacticalcpuplayer;
 
   beforeEach( function(){
-    P2WINRULELOGIC = {"Scissors":"Rock", "Rock":"Paper", "Paper":"Scissors"}
+    P2WINRULELOGIC = {"Scissors":["Rock", "Spock"], "Paper":["Scissors", "Lizard"], "Rock":["Paper", "Spock"], "Lizard":["Rock", "Scissors"], "Spock":["Lizard", "Paper"]}
     tacticalcpuplayer = new TacticalCPUPlayer(P2WINRULELOGIC);
   })
 
@@ -19,27 +19,27 @@ describe("TacticalCPUPlayer", function(){
   })
 
   it("is has access to the winning game rule logic when initialized", function() {
-    expect(tacticalcpuplayer.ruleLogic).toEqual({"Scissors":"Rock", "Rock":"Paper", "Paper":"Scissors"})
+    expect(tacticalcpuplayer.ruleLogic).toEqual({ "Scissors":["Rock", "Spock"], "Paper":["Scissors", "Lizard"], "Rock":["Paper", "Spock"], "Lizard":["Rock", "Scissors"], "Spock":["Lizard", "Paper"]})
   })
 
   it("can store previous turns in an array", function() {
     tacticalcpuplayer.takeTurn();
     tacticalcpuplayer.takeTurn();
-    expect(tacticalcpuplayer.previousTurns).toEqual(["Rock", "Paper"])
+    expect(tacticalcpuplayer.previousTurns).toEqual(["Rock", "Spock"])
   })
 
   it("can store the latest turn whilst storing previous turns", function() {
     tacticalcpuplayer.takeTurn();
     tacticalcpuplayer.takeTurn();
-    expect(tacticalcpuplayer.previousTurns).toEqual(["Rock", "Paper"])
-    expect(tacticalcpuplayer.turn).toEqual("Paper")
+    expect(tacticalcpuplayer.previousTurns).toEqual(["Rock", "Spock"])
+    expect(tacticalcpuplayer.turn).toEqual("Spock")
   })
 
   it("takes its next turn based on selecting the choice that would have beaten its previous turn", function(){
     tacticalcpuplayer.takeTurn();
     tacticalcpuplayer.takeTurn();
     tacticalcpuplayer.takeTurn();
-    expect(tacticalcpuplayer.previousTurns).toEqual(["Rock", "Paper", "Scissors"])
+    expect(tacticalcpuplayer.previousTurns).toEqual(["Rock", "Spock", "Paper"])
   });
 })
 

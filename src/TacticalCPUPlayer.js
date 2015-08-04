@@ -10,7 +10,10 @@ TacticalCPUPlayer.prototype.takeTurn = function() {
     this.turn = "Rock"
     this.previousTurns.push(this.turn)
   } else {
-    this.turn = this.ruleLogic[this.previousTurns[this.previousTurns.length-1]]
+    //basic : always pick the second in the array
+    //v2 : pick randomIndex between 0..1 in array
+    // var randomIndex = Math.floor(Math.random() * (2 - 0) + 0);
+    this.turn = this.ruleLogic[this.previousTurns[this.previousTurns.length-1]][1]
     this.previousTurns.push(this.turn)
   }
 };

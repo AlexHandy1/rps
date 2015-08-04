@@ -4,8 +4,8 @@ describe("Game", function(){
   var player2;
 
   beforeEach( function(){
-    RULELOGIC = { "Rock":"Scissors", "Paper":"Rock", "Scissors":"Paper"}
-    P2WINRULELOGIC = {"Scissors":"Rock", "Rock":"Paper", "Paper":"Scissors"}
+    RULELOGIC = { "Rock":["Scissors", "Lizard"], "Paper":["Rock", "Spock"], "Scissors":["Paper", "Lizard"], "Lizard":["Paper", "Spock"], "Spock":["Scissors", "Rock"] }
+    P2WINRULELOGIC = {"Scissors":["Rock", "Spock"], "Paper":["Scissors", "Lizard"], "Rock":["Paper", "Spock"], "Lizard":["Rock", "Scissors"], "Spock":["Lizard", "Paper"]}
     //refactor and mock-out
     player1 = new HumanPlayer();
     player2 = new RandomCPUPlayer();
@@ -15,7 +15,7 @@ describe("Game", function(){
   })
 
   it("has a set of game rule logic when initialized", function() {
-    expect(game.ruleLogic).toEqual({ "Rock":"Scissors", "Paper":"Rock", "Scissors":"Paper"})
+    expect(game.ruleLogic).toEqual({ "Rock":["Scissors", "Lizard"], "Paper":["Rock", "Spock"], "Scissors":["Paper", "Lizard"], "Lizard":["Paper", "Spock"], "Spock":["Scissors", "Rock"] })
   });
 
   it("has two players when initialized", function() {
@@ -73,10 +73,10 @@ describe("Game", function(){
     player1.takeTurn("Rock");
     tacticalplayer.takeTurn();
     expect(tacticalGame.roundResult()).toEqual("It's a tie")
-    player1.takeTurn("Rock");
+    player1.takeTurn("Scissors");
     tacticalplayer.takeTurn();
     tacticalGame.roundResult();
-    player1.takeTurn("Paper");
+    player1.takeTurn("Rock");
     tacticalplayer.takeTurn();
     tacticalGame.roundResult();
     expect(tacticalGame.checkForWinner(player1, tacticalplayer)).toEqual("Player 2 is the Winner!")

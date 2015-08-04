@@ -8,7 +8,7 @@ function Game(ruleLogic, player1, player2){
 Game.prototype.roundResult = function() {
   if (this.player1.turn == this.player2.turn) {
     return "It's a tie"
-  } else if (this.ruleLogic[this.player1.turn] == this.player2.turn) {
+  } else if (this.ruleLogic[this.player1.turn].indexOf(this.player2.turn)!= -1) {
     this.addRoundWin(this.player1);
     return "Player 1 Wins This Round"
   } else {

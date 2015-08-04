@@ -35,7 +35,7 @@ Use Cases:
       So that I can play a game against a smarter computer player,
       I want to be able choose a computer component that is tactical e.g. always selects the choice that would have beaten its last choice
 
-- [ ] As a User,
+- [x] As a User,
       So that I can play a game with extended rules,
       I want to have the range of possible moves expanded e.g. player can choose Rock, Paper, Scissors, Lizard, Spock
 
