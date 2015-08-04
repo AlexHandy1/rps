@@ -5,10 +5,13 @@ describe("Game", function(){
 
   beforeEach( function(){
     RULELOGIC = { "Rock":"Scissors", "Paper":"Rock", "Scissors":"Paper"}
+    P2WINRULELOGIC = {"Scissors":"Rock", "Rock":"Paper", "Paper":"Scissors"}
     //refactor and mock-out
     player1 = new HumanPlayer();
     player2 = new RandomCPUPlayer();
+    tacticalplayer = new TacticalCPUPlayer(P2WINRULELOGIC);
     game = new Game(RULELOGIC, player1, player2);
+    tacticalGame = new Game(RULELOGIC, player1, tacticalplayer);
   })
 
   it("has a set of game rule logic when initialized", function() {
@@ -64,5 +67,18 @@ describe("Game", function(){
     game.roundResult();
     expect(game.checkForWinner(player1, player2)).toEqual("Player 1 is the Winner!")
     expect(player1.roundWins).toEqual(2)
+  })
+
+  it("can evaluate an overall winner in a game where a human player takes on a tactical CPU player", function() {
+    player1.takeTurn("Rock");
+    tacticalplayer.takeTurn();
+    expect(tacticalGame.roundResult()).toEqual("It's a tie")
+    player1.takeTurn("Rock");
+    tacticalplayer.takeTurn();
+    tacticalGame.roundResult();
+    player1.takeTurn("Paper");
+    tacticalplayer.takeTurn();
+    tacticalGame.roundResult();
+    expect(tacticalGame.checkForWinner(player1, tacticalplayer)).toEqual("Player 2 is the Winner!")
   })
 })

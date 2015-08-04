@@ -9,13 +9,13 @@ describe("HumanPlayer", function(){
     expect(humanplayer.turn).toEqual(null);
   });
 
+  it("has zero round wins when initialized", function() {
+    expect(humanplayer.roundWins).toEqual(0)
+  })
+
   it("stores a selected turn when passed a valid string", function() {
     humanplayer.takeTurn("Rock")
     expect(humanplayer.turn).toEqual("Rock")
-  })
-
-  it("has zero round wins when initialized", function() {
-    expect(humanplayer.roundWins).toEqual(0)
   })
 
 })

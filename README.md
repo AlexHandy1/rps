@@ -31,7 +31,7 @@ Use Cases:
       So that I can play a longer game of Rock Paper Scissors,
       I want to play a best of three rounds match against a computer with randomised choices
 
-- [ ] As a User,
+- [x] As a User,
       So that I can play a game against a smarter computer player,
       I want to be able choose a computer component that is tactical e.g. always selects the choice that would have beaten its last choice
 
