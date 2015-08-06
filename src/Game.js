@@ -22,9 +22,9 @@ Game.prototype.addRoundWin = function(player) {
 };
 
 Game.prototype.checkForWinner = function(player1, player2) {
-  if (player1.roundWins == 2) {
+  if (player1.roundWins == this.roundWinsTarget) {
     return "Player 1 is the Winner!"
-  } else if(player2.roundWins == 2) {
+  } else if(player2.roundWins == this.roundWinsTarget) {
     return "Player 2 is the Winner!"
   } else {
     return

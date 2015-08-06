@@ -1,23 +1,31 @@
 Summary
 =================
 
-* My implementation of a rock paper scissors game
+* My implementation of a rock, paper, scissors (and lizard, spock) game developed through TDD using Javascript and Jasmine.
 
 * Based on the specification, I made a number of key implementation decisions:
 
-  * xxx
+  * Chose native Javascript/ jQuery to build one page web interface for game and to demonstrate use of one of the company's core languages.  For a project with larger scope, I would have elected to use a front-end framework (e.g. KnockoutJS or Angular (see [Subredditor](https://github.com/AlexHandy1/subredditor)) to allow for quicker development and extended functionality.
 
-  * xxx
+  * Modelled domain to ensure designed for flexibility/ extensions:
+    * Game Object which when initialized with the rules for a particular game and two separate players processes rounds and the overall result.
+    * Separate player objects for each player type (Human, RandomCPU and TacticalCPU). All designed to be fully adaptable to changing game rules.
 
-  * xxx
+  * Built Game UI as a separate javascript file to drive interface logic:
+    * Designed game to always have 1 human player competing against a differing type of CPU player.
+    * The human player has option around which type of CPU player to instantiate and play against by clicking a button >> have to click this to start Game.
+    * The human player takes a turn by entering 'Rock', 'Paper', 'Scissors', 'Lizard' or 'Spock' and game processes winner with text display all without reloading page.
+    * The human player can clear and restart game by clicking the 'Play Again' button.
 
-  * xxx
+  * Demonstrated extendability by implementing the additional rules introduced through adding Lizard and Spock turn options.
 
-  * xxx
+  * For the purposes of the exercise, I assumed user knowledge of the system and did not build in error handling into UI. Immediate further improvements would be to build in extended input validation and error handling.
+
+  * Challenges - implementing mocking and stubbing for objects to manage underlying randomness of RandomCPUPlayer in jasmine unit tests proved challenging...learnt that...
 
 * More detail on areas where I would extend the application can be found listed below in 'Further improvements'
 
-![Rock Paper Scissors](https://github.com/AlexHandy1/rps/blob/master/RPS.png)
+![Rock Paper Scissors Lizard Spock](https://github.com/AlexHandy1/rps/blob/master/img/RPS.png)
 
 Use Cases:
 -------
@@ -64,13 +72,9 @@ Technologies used
 Further Improvements
 ----
 
-*  xxx
+*  Enhanced set of user validations and error handling e.g. drop-down list for form, hide game selection buttons during game (show again after hit play again), stop players taking turns after one has won
 
-*  xxx
+*  Implement feature testing for UI
 
-*  xxx
-
-*  xxx
-
-*  xxx
+*  Extend UI - allow human players to play against one another rather than CPU players
 

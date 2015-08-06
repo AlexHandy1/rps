@@ -4,7 +4,7 @@ P2WINRULELOGIC = {"Scissors":["Rock", "Spock"], "Paper":["Scissors", "Lizard"], 
 $(document).ready( function(){
   $("#start-random-cpu").click( function() {
     player1 = new HumanPlayer();
-    player2 = new RandomCPUPlayer();
+    player2 = new RandomCPUPlayer(RULELOGIC);
     game = new Game(RULELOGIC, player1, player2);
   })
 

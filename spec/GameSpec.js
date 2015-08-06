@@ -6,12 +6,14 @@ describe("Game", function(){
   beforeEach( function(){
     RULELOGIC = { "Rock":["Scissors", "Lizard"], "Paper":["Rock", "Spock"], "Scissors":["Paper", "Lizard"], "Lizard":["Paper", "Spock"], "Spock":["Scissors", "Rock"] }
     P2WINRULELOGIC = {"Scissors":["Rock", "Spock"], "Paper":["Scissors", "Lizard"], "Rock":["Paper", "Spock"], "Lizard":["Rock", "Scissors"], "Spock":["Lizard", "Paper"]}
-    //refactor and mock-out
+    TRADITIONALRULELOGIC = { "Rock":["Scissors"], "Paper":["Rock"], "Scissors":["Paper"]}
+    //how do you create stubbed objects with all underlying functionality
     player1 = new HumanPlayer();
     player2 = new RandomCPUPlayer();
     tacticalplayer = new TacticalCPUPlayer(P2WINRULELOGIC);
     game = new Game(RULELOGIC, player1, player2);
     tacticalGame = new Game(RULELOGIC, player1, tacticalplayer);
+    tradtionalGame = new Game(TRADITIONALRULELOGIC, player1, player2);
   })
 
   it("has a set of game rule logic when initialized", function() {
@@ -29,21 +31,18 @@ describe("Game", function(){
 
   it("can evaluate a Player 1 Win after both players have taken one go", function() {
     player1.takeTurn("Rock");
-    //refactor and stub correctly
     player2.turn = "Scissors"
     expect(game.roundResult()).toEqual("Player 1 Wins This Round")
   })
 
   it("can evaluate a Player 2 Win after both players have taken one go", function() {
     player1.takeTurn("Rock");
-    //refactor and stub correctly
     player2.turn = "Paper"
     expect(game.roundResult()).toEqual("Player 2 Wins This Round")
   })
 
   it("can evaluate a tie after both players have taken one go", function() {
     player1.takeTurn("Rock");
-    //refactor and stub correctly
     player2.turn = "Rock"
     expect(game.roundResult()).toEqual("It's a tie")
   })
@@ -80,5 +79,11 @@ describe("Game", function(){
     tacticalplayer.takeTurn();
     tacticalGame.roundResult();
     expect(tacticalGame.checkForWinner(player1, tacticalplayer)).toEqual("Player 2 is the Winner!")
+  })
+
+  it("can easily switch between sets of rules and process a result", function() {
+    player1.takeTurn("Rock");
+    player2.turn = "Scissors"
+    expect(tradtionalGame.roundResult()).toEqual("Player 1 Wins This Round")
   })
 })
