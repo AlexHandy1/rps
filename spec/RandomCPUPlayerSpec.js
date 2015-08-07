@@ -18,12 +18,9 @@ describe("RandomCPUPlayer", function(){
     expect(randomcpuplayer.ruleLogic).toEqual({ "Rock":["Scissors", "Lizard"], "Paper":["Rock", "Spock"], "Scissors":["Paper", "Lizard"], "Lizard":["Paper", "Spock"], "Spock":["Scissors", "Rock"] })
   })
 
-  xit("generates a random turn for the CPU player", function() {
-    //refactor to stub out
-    spyOn(randomcpuplayer, "takeTurn").and.returnValue("Rock");
-    //this returns the right value but not storing in this.turns - how do you return properties within a stubbed method?
+  it("generates a random turn for the CPU player", function() {
+    spyOn(Math, "random").and.returnValue(0);
     randomcpuplayer.takeTurn();
-    console.log(randomcpuplayer.turn)
     expect(randomcpuplayer.turn).toEqual("Rock")
   })
 })

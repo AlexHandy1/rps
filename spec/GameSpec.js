@@ -7,7 +7,6 @@ describe("Game", function(){
     RULELOGIC = { "Rock":["Scissors", "Lizard"], "Paper":["Rock", "Spock"], "Scissors":["Paper", "Lizard"], "Lizard":["Paper", "Spock"], "Spock":["Scissors", "Rock"] }
     P2WINRULELOGIC = {"Scissors":["Rock", "Spock"], "Paper":["Scissors", "Lizard"], "Rock":["Paper", "Spock"], "Lizard":["Rock", "Scissors"], "Spock":["Lizard", "Paper"]}
     TRADITIONALRULELOGIC = { "Rock":["Scissors"], "Paper":["Rock"], "Scissors":["Paper"]}
-    //how do you create stubbed objects with all underlying functionality
     player1 = new HumanPlayer();
     player2 = new RandomCPUPlayer();
     tacticalplayer = new TacticalCPUPlayer(P2WINRULELOGIC);

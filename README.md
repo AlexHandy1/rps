@@ -21,7 +21,7 @@ Summary
 
   * For the purposes of the exercise, I assumed user knowledge of the system and did not build in error handling into UI. Immediate further improvements would be to build in extended input validation and error handling.
 
-  * Challenges - implementing mocking and stubbing for objects to manage underlying randomness of RandomCPUPlayer in jasmine unit tests proved challenging...learnt that...
+  * Challenges - implementing stubbing with jasmine to manage underlying randomness of RandomCPUPlayer in unit tests - learnt that could stub out the underlying Math.random method to control.
 
 * More detail on areas where I would extend the application can be found listed below in 'Further improvements'
 
@@ -73,6 +73,8 @@ Further Improvements
 ----
 
 *  Enhanced set of user validations and error handling e.g. drop-down list for form, hide game selection buttons during game (show again after hit play again), stop players taking turns after one has won
+
+*  Implement full object mocking in game unit test to reduce dependencies on other player objects
 
 *  Implement feature testing for UI
 
