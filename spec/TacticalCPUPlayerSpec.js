@@ -18,7 +18,7 @@ describe("TacticalCPUPlayer", function(){
     expect(tacticalcpuplayer.previousTurns).toEqual([])
   })
 
-  it("is has access to the winning game rule logic when initialized", function() {
+  it("has access to the winning game rule logic when initialized", function() {
     expect(tacticalcpuplayer.ruleLogic).toEqual({ "Scissors":["Rock", "Spock"], "Paper":["Scissors", "Lizard"], "Rock":["Paper", "Spock"], "Lizard":["Rock", "Scissors"], "Spock":["Lizard", "Paper"]})
   })
 
